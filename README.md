@@ -26,18 +26,7 @@ I'd recomend not putting a file extention after the resource files, but if you d
 
 # file formatting
 
-Files are simply uniform text with color codes. A new line signals a new line of the resource while an empty line signifies a new frame.
-
-The following could be read as a fish or part of a tank that is two charcters tall, three charcters wide, and each frame changes from a block of 'x's to 'o's to 'z's 
-  xxx
-  xxx
-
-  ooo
-  ooo
-
-  zzz
-  zzz
-Color codes can be places in like so and everything following that color code will be that color until another code is used. The following would make the resource cycle from a block of green 'x's to yellow 'o's to red 'z's
+to be written
 
 # resource creation
 You can use your favorite text editor or you can use the zlib liscensed program created by my brother. It is very nifty, but as of right now has no error handling.
