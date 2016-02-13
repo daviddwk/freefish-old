@@ -28,10 +28,12 @@ I'd recomend not putting a file extention after the resource files, but if you d
 
 # file formatting
 Resources are to be made of lines of uniform legnth and with frames of a uniform number of lines. Each line is seperated by a return and each frame is seperated by an empty line. Color codes can also be used in these files and will not count as a charcter but two in a row should never be used. Color codes are to be formatted as such ^[[94m where the initial '^[' is an escape charcter.
+
 The fish and flip files for any type of fish must have the same number of frames, number of lines per frame, and number of charcters for charcter per frame. The foreground and background files for a tank must have the same number of lines per frame and the same number of charcter per line, but do not need to have the same number of frames.
+
 If this is confusing take a look at the resources in the sample folder, or use the program mentioned below.
 
 When rendered the foreground has first priority, the fish have second, and the background has thirds. Only the backgrounds spaces will be rendered. If a foreground has spaces what is behind it will be rendered and if a fish has spaces the same will happen.
 
 # file creation
-You can use your favorite text editor or you can use the zlib liscensed program created by my brother. It is very nifty, but as of right now has no error handling.
+You can use your favorite text editor or you can use the zlib liscensed program created by my brother. It is very nifty, but as of right now has no error handling. I will upload this later.
