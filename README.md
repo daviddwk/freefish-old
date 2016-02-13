@@ -11,7 +11,7 @@ Place the executable where you like and create the freefish folders and resource
 --fish    -f  uses following arguments not beginning with a '-' as fish to spawn in the tank. Typing a fish multiple times will load it multiple times. The fish typed first will always be rendered on top of the fish typed after.
 
 # compiling freefish
-Freefish must be compiled in C++ 11 or later. A codebocks project file is included which may be of use if you want to compile freefish in an IDE.
+Freefish must be compiled in C++ 11 or later.
 
 # file structure
 The executable can be ran from anywhere, but you can place it in /usr/bin if you please
