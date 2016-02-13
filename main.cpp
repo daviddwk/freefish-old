@@ -14,7 +14,7 @@
 void help(){
     std::cout << "--help    -h  displays this help menu\n";
     std::cout << "--list    -l  lists avaliable fish and tanks\n";
-    std::cout << "--speed   -s  sets the legnth of each frame in microseconds";
+    std::cout << "--speed   -s  sets the legnth of each frame in microseconds\n";
     std::cout << "--tank    -t  uses single following argument as fishtank file\n";
     std::cout << "--fish    -f  uses following arguments as fish foiles\n              typing a fish multiple times will load it multiple times\n";
 }
@@ -48,24 +48,36 @@ int main(int argc, char* argv[]){
         }
         else if(std::string(argv[i]) == "--speed" || std::string(argv[i]) == "-s"){
             i++;
-            try{
-                frameSpeed = std::stoi(std::string(argv[i]));
+            if(i < argc){
+                try{
+                    frameSpeed = std::stoi(std::string(argv[i]));
+                }
+                catch(std::invalid_argument e){
+                    std::cout << "speed not a valid integer\n";
+                    return 0;
+                }
             }
-            catch(std::invalid_argument e){
-                std::cout << "speed not a valid integer\n";
-                return 0;
+            else{
+            help();
+            return 0;
             }
         }
         else if(std::string(argv[i]) == "--tank" || std::string(argv[i]) == "-t" ){
             i++;
-            std::string input(argv[i]);
-            background = readFile("/usr/share/freefish/background/" + input);
-            foreground = readFile("/usr/share/freefish/foreground/" + input);
-            if(!checkFile(background, "background", input) || !checkFile(foreground, "foreground", input)){
-                return 0;
+            if(i < argc){
+                std::string input(argv[i]);
+                background = readFile("/usr/share/freefish/background/" + input);
+                foreground = readFile("/usr/share/freefish/foreground/" + input);
+                if(!checkFile(background, "background", input) || !checkFile(foreground, "foreground", input)){
+                    return 0;
+                }
+                if(background[0].size() != foreground[0].size() || background[0][0].size() != foreground[0][0].size()){
+                    std::cout << "tank " << input << " mismatching background and foreground sizes\n";
+                    return 0;
+                }
             }
-            if(background[0].size() != foreground[0].size() || background[0][0].size() != foreground[0][0].size()){
-                std::cout << "tank " << input << " mismatching background and foreground sizes\n";
+            else{
+                help();
                 return 0;
             }
         }
