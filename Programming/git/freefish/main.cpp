@@ -14,7 +14,7 @@
 void help(){
     std::cout << "--help    -h  displays this help menu\n";
     std::cout << "--list    -l  lists avaliable fish and tanks\n";
-    std::cout << "--speed   -s  sets the legnth of each frame in microsecond\n";
+    std::cout << "--speed   -s  sets the legnth of each frame in microseconds\n";
     std::cout << "--tank    -t  uses single following argument as fishtank file\n";
     std::cout << "--fish    -f  uses following arguments as fish foiles\n              typing a fish multiple times will load it multiple times\n";
 }
@@ -58,8 +58,8 @@ int main(int argc, char* argv[]){
                 }
             }
             else{
-                help();
-                return 0;
+            help();
+            return 0;
             }
         }
         else if(std::string(argv[i]) == "--tank" || std::string(argv[i]) == "-t" ){
