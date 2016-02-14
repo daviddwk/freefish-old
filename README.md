@@ -1,5 +1,5 @@
 # freefish
-A free asccii fish tank for the linux terminal. I am very new to C++, but my code shouldn't be awful.
+A free asccii fish tank for the linux terminal under the GPLv3. I am very new to C++, but my code shouldn't be awful.
 
 # using freefish
 Place the executable where you like and create the freefish folders and resources mentioned later in this readme. Then, run freefish with the following arguments to produce the desired result.
@@ -36,4 +36,4 @@ If this is confusing take a look at the resources in the sample folder, or use t
 When rendered the foreground has first priority, the fish have second, and the background has thirds. Only the backgrounds spaces will be rendered. If a foreground has spaces what is behind it will be rendered and if a fish has spaces the same will happen.
 
 # file creation
-You can use your favorite text editor or you can use the zlib liscensed program created by my brother. It is very nifty, but as of right now has no error handling. I will upload this later.
+You can use your favorite text editor or you can use the zlib liscensed program created by my brother. It is very nifty, but as of right now has no error handling. It is avaliable here https://github.com/daviddwk/asciieditor and is under the zlib liscense.
