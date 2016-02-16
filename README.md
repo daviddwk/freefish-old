@@ -1,6 +1,13 @@
 # freefish
 A free asccii fish tank for the linux terminal under the GPLv3. I am very new to C++, but my code shouldn't be awful.
 
+# installing freefish
+First simply run make in the cloned freefish directory. This will create an executable file "freefish" in the directly. You can place and run these executable from anywhere. If you wish to always have it at your disposal you can copy the executable to /usr/bin so you may run freefish by typing freefish into your shell at any time.
+
+If you wish to manually compile make sure you are compiling freefish in c++11 or later.
+
+Next you must set up the proper series of folders with properly formatted resources in them. These folders are currently hardcoded to be in /usr/share/freefish, but you can easly modify this before compiling if you wish to have a different directory. The folders and file formatting are explained below, but if you wish to use my samples inluded to use freefish right off of the bat than copy the contents of the sample folder into /usr/share/freefish .
+
 # using freefish
 Place the executable where you like and create the freefish folders and resources mentioned later in this readme. Then, run freefish with the following arguments to produce the desired result.
 
@@ -13,9 +20,6 @@ Place the executable where you like and create the freefish folders and resource
 --tank    -t  Uses single following argument as fishtank file by loading the background and foreground from their respecitve directories.
 
 --fish    -f  uses following arguments not beginning with a '-' as fish to spawn in the tank. Typing a fish multiple times will load it multiple times. The fish typed first will always be rendered on top of the fish typed after.
-
-# compiling freefish
-Freefish must be compiled in C++ 11 or later.
 
 # file structure
 The executable can be ran from anywhere, but you can place it in /usr/bin if you please
