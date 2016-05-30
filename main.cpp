@@ -7,9 +7,14 @@
 #include <random>
 #include <time.h>
 #include <stdexcept>
+#include <sys/types.h>
+#include <pwd.h>
 #include "ColorChar.h"
 #include "Fish.h"
 #include "ReadFile.h"
+
+struct passwd *pw = getpwuid(getuid());    
+std::string homedir(pw->pw_dir);
 
 void help(){
     std::cout << "--help    -h  displays this help menu\n";
@@ -40,9 +45,9 @@ int main(int argc, char* argv[]){
         }
         else if(std::string(argv[i]) == "--list" || std::string(argv[i]) == "-l"){
             std::cout << "fish\n\n";
-            system("ls /usr/share/freefish/fish");
+            system(("ls " + homedir + "/.freefish/fish").c_str());
             std::cout << "\ntanks\n\n";
-            system("ls /usr/share/freefish/background");
+            system(("ls " + homedir + "/.freefish/background").c_str());
             std::cout <<"\nthis function does not check for errors, missing flips, or missing foreground\n";
             return 0;
         }
@@ -66,8 +71,8 @@ int main(int argc, char* argv[]){
             i++;
             if(i < argc){
                 std::string input(argv[i]);
-                background = readFile("/usr/share/freefish/background/" + input);
-                foreground = readFile("/usr/share/freefish/foreground/" + input);
+                background = readFile(homedir +  "/.freefish/background/" + input);
+                foreground = readFile(homedir + "/.freefish/foreground/" + input);
                 if(!checkFile(background, "background", input) || !checkFile(foreground, "foreground", input)){
                     return 0;
                 }
@@ -86,7 +91,7 @@ int main(int argc, char* argv[]){
             i++;
             while(argc > i && argv[i][0] != '-'){
                 std::string input(argv[i]);
-                if(!fish.load("/usr/share/freefish/fish/" + input, "/usr/share/freefish/flip/" + input, input)){
+                if(!fish.load(homedir + "/.freefish/fish/" + input, homedir + "/.freefish/flip/" + input, input)){
                     return 0;
                 }
                 fishies.push_back(fish);

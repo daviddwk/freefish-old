@@ -6,7 +6,7 @@ First, simply run `make` in the cloned freefish directory. This will create an e
 
 If you wish to manually compile, make sure you are compiling freefish in C++11 or later.
 
-Next, you must set up the proper series of folders with properly formatted resources in them. These folders are currently hardcoded to be in `/usr/share/freefish`, but you can easily modify this before compiling if you wish to have a different directory. The folders and file formatting are explained below, but if you wish to use my sample resources you can start using freefish right off of the bat. Just copy the contents of the sample folder into `/usr/share/freefish`.
+Next, you must set up the proper series of folders with properly formatted resources in them. These folders are currently hardcoded to be in `~/.freefish`, but you can easily modify this before compiling if you wish to have a different directory. The folders and file formatting are explained below, but if you wish to use my sample resources you can start using freefish right off of the bat. Just copy the contents of the sample folder into `~/.freefish`.
 
 # using freefish
 Place the executable where you like and create the freefish folders and resources mentioned later in this readme. Then, run freefish with the following arguments to produce the desired result.
@@ -15,8 +15,8 @@ Place the executable where you like and create the freefish folders and resource
 --help    -h  Displays a help menu similar to this.
 
 --list    -l  lists available fish and tanks. This simply uses ls in the
-              directories /usr/share/freefish/fish and
-              usr/share/freefish/background so it is actually rather limited as
+              directories ~/.freefish/fish and
+              ~/.freefish/background so it is actually rather limited as
               of now.
 
 --speed   -s  Sets the length of each frame in microseconds.
@@ -35,10 +35,10 @@ The executable can be ran from anywhere, but you can place it in `/usr/bin` if y
 
 Freefish looks for files in four folders:
 
-* for fish `/usr/share/freefish/fish`
-* for flipped fish `/usr/share/freefish/flip`
-* for backgrounds `/usr/share/freefish/background`
-* for foreground `/usr/share/freefish/foreground`
+* for fish `~/.freefish/fish`
+* for flipped fish `~/.freefish/flip`
+* for backgrounds `~/.freefish/background`
+* for foreground `~/.freefish/foreground`
 
 When loading a fish, freefish looks for a file of that name in the folders fish and flip, so it is important to format them correctly. Loading tanks works similarly where the background of the tank is in the background folder, and the foreground of the tank is in the foreground folder.
 
