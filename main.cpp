@@ -131,7 +131,7 @@ int main(int argc, char* argv[]){
 				}
 				else{
 					bool fishThere = false;
-					for(int f = 0; f < fishies.size(); f++){
+					for(int f = 0; f < fishies.size() && !fishThere; f++){
 						Fish fish = fishies[f];
 						// if there is a fish char at (x,y)
 						if(x >= fish.x && x < fish.x + fish.width && y >= fish.y && y < fish.y + fish.height){
