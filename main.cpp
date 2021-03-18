@@ -125,7 +125,7 @@ int main(int argc, char* argv[]){
 		// drawing a frame
 		for(int y = 0; y < background[backgroundFrame].size(); y++){
 			for(int x = 0; x < background[backgroundFrame][y].size(); x++){
-				// if the foreground char at (x,y) is not blank than draw it, otherwise ...
+				// if the foreground char at (x,y) is not blank than draw it
 				if(foreground[foregroundFrame][y][x].character != ' '){
 					std::cout << foreground[foregroundFrame][y][x];
 				}
@@ -133,19 +133,26 @@ int main(int argc, char* argv[]){
 					bool fishThere = false;
 					for(int f = 0; f < fishies.size(); f++){
 						Fish fish = fishies[f];
-						// if there is a nonblank fish char at (x,y) than draw it, otherwise ...
-						if(!fish.flip && x >= fish.x && x < fish.x + fish.width && y >= fish.y && y < fish.y + fish.height && fish.fishChars[fish.frame][y - fish.y][x - fish.x].character != ' '){
-							fishThere = true;
-							std::cout << fish.fishChars[fish.frame][y-fish.y][x-fish.x];
-							break;
-						}
-						if(fish.flip && x >= fish.x && x < fish.x + fish.width && y >= fish.y && y < fish.y + fish.height && fish.flipChars[fish.frame][y - fish.y][x - fish.x].character != ' '){
-							fishThere = true;
-							std::cout << fish.flipChars[fish.frame][y-fish.y][x-fish.x];
-							break;
+						// if there is a fish char at (x,y)
+						if(x >= fish.x && x < fish.x + fish.width && y >= fish.y && y < fish.y + fish.height){
+							// taking into account if fish is flipped
+							if(!fish.flip){
+								// and that char is not blank
+								if(fish.fishChars[fish.frame][y - fish.y][x - fish.x].character != ' '){
+									fishThere = true;
+									// then draw the fish's char
+									std::cout << fish.fishChars[fish.frame][y-fish.y][x-fish.x];
+								}
+							} 
+							else{
+								if(fish.flipChars[fish.frame][y - fish.y][x - fish.x].character != ' '){
+									fishThere = true;
+									std::cout << fish.flipChars[fish.frame][y-fish.y][x-fish.x];
+								}							
+							}
 						}
 					}
-					// draw the background char of (x,y)
+					// otherwise draw the background char of (x,y)
 					if(!fishThere){
 						std::cout << background[backgroundFrame][y][x];
 					}
@@ -162,7 +169,6 @@ int main(int argc, char* argv[]){
 		}
 
 		// advance everything 1 frame, loop back to frame 0 if needed
-
 		foregroundFrame++;
 		if(foregroundFrame >= foreground.size()){
 			foregroundFrame = 0;
