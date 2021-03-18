@@ -161,21 +161,21 @@ int main(int argc, char* argv[]){
 			fishies[i].updatePosition(background[0].size(), background[0][0].size());
 		}
 
-		foregroundFrame++;
-		backgroundFrame++;
-		for(int i = 0; i < fishies.size(); i++){
-			fishies[i].frame++;
-		}
+		// advance everything 1 frame, loop back to frame 0 if needed
 
+		foregroundFrame++;
 		if(foregroundFrame >= foreground.size()){
 			foregroundFrame = 0;
 		}
+		backgroundFrame++;
 		if(backgroundFrame >= background.size()){
 			backgroundFrame = 0;
 		}
 		for(int i = 0; i < fishies.size(); i++){
-			if (fishies[i].frame >= fishies[i].fishChars.size())
+			fishies[i].frame++;
+			if (fishies[i].frame >= fishies[i].fishChars.size()){
 				fishies[i].frame = 0;
+			}
 		}
 	}
 	return 0;
