@@ -116,7 +116,6 @@ int main(int argc, char* argv[]){
 		}
 	}
 
-	bool fishThere = false;
 	int backgroundFrame = 0;
 	int foregroundFrame = 0;
 
@@ -126,14 +125,15 @@ int main(int argc, char* argv[]){
 		// drawing a frame
 		for(int y = 0; y < background[backgroundFrame].size(); y++){
 			for(int x = 0; x < background[backgroundFrame][y].size(); x++){
+				// if the foreground char at (x,y) is not blank than draw it, otherwise ...
 				if(foreground[foregroundFrame][y][x].character != ' '){
 					std::cout << foreground[foregroundFrame][y][x];
 				}
 				else{
-					fishThere = false;
+					bool fishThere = false;
 					for(int f = 0; f < fishies.size(); f++){
 						Fish fish = fishies[f];
-						//
+						// if there is a nonblank fish char at (x,y) than draw it, otherwise ...
 						if(!fish.flip && x >= fish.x && x < fish.x + fish.width && y >= fish.y && y < fish.y + fish.height && fish.fishChars[fish.frame][y - fish.y][x - fish.x].character != ' '){
 							fishThere = true;
 							std::cout << fish.fishChars[fish.frame][y-fish.y][x-fish.x];
@@ -145,6 +145,7 @@ int main(int argc, char* argv[]){
 							break;
 						}
 					}
+					// draw the background char of (x,y)
 					if(!fishThere){
 						std::cout << background[backgroundFrame][y][x];
 					}
