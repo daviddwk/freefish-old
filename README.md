@@ -1,3 +1,6 @@
+# old
+This is the old version of freefish. See the new version [here](https://github.com/daviddwk/freefish)!
+
 # freefish
 A free ASCII fish tank for the Linux terminal under the GPLv3. I am very new to C++, but my code shouldn't be awful.
 
